@@ -4,6 +4,13 @@
     tools:context="ovh.geoffrey_druelle.trustmysciencerssreader.Activity.SelectedItemActivity">
 
     <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"
+        android:orderInCategory="100"
+        app:showAsAction="always"/>
+
+    <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_share"
         android:orderInCategory="100"

@@ -7,9 +7,11 @@ import android.net.ConnectivityManager
 import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import ovh.geoffrey_druelle.trustmysciencerssreader.Adapter.FeedAdapter
@@ -32,13 +34,18 @@ class MainActivity : AppCompatActivity() {
         val linearLayoutManager = LinearLayoutManager(baseContext, LinearLayoutManager.VERTICAL, false)
         recyclerview.layoutManager = linearLayoutManager
 
-        if(isNetworkAvailable()){
-            loadRSS()
-        }
-        else if (!isNetworkAvailable()){
 
-        }
+        loadRSS()
+
+        // Using DB or savedInstanceState for an Offline mode
+//        if(isNetworkAvailable()){
+//            loadRSS()
+//        }
+//        else if (!isNetworkAvailable()) {
+//
+//        }
     }
+
 
     private fun isNetworkAvailable(): Boolean {
         val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE)
@@ -88,6 +95,20 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.action_refresh)
             loadRSS()
+        if(item.itemId == R.id.action_more)
+            moreOptions()
         return true
+    }
+
+    private fun moreOptions() {
+        Toast.makeText(this,"Plus d'options prochainement",Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+        super.onSaveInstanceState(outState, outPersistentState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
     }
 }

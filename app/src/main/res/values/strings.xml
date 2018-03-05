@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TrustMyScience RSS Reader</string>
+    <string name="app_name">Trust My Science</string>
     <string name="text">text</string>
     <string name="date">date</string>
     <string name="content">content</string>
@@ -98,5 +98,8 @@
     </string>
     <string name="action_settings">Settings</string>
     <string name="lien_vers_l_article">Lien vers l\'article</string>
+    <string name="refresh">Refresh</string>
+    <string name="more">More</string>
+    <string name="home">Home</string>
 
 </resources>

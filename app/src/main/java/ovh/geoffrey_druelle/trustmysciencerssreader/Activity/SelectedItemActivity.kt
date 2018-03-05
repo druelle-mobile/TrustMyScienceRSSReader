@@ -48,7 +48,6 @@ class SelectedItemActivity : AppCompatActivity() {
             }
         }
 
-        toolbar.title = "Trust My Science"
         setSupportActionBar(toolbar)
 
     }
@@ -63,6 +62,8 @@ class SelectedItemActivity : AppCompatActivity() {
             shareNews()
         if(item.itemId == R.id.action_bookmark)
             bookmarkNews()
+        if(item.itemId == R.id.action_home)
+            onBackPressed()
         return true
     }
 

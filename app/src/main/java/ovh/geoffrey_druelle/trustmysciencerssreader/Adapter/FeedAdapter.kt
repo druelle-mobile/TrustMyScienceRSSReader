@@ -78,7 +78,7 @@ class FeedAdapter(private val rssObject: RSSObject, private val mContext: Contex
                 selectedItemIntent.putExtra("thumbnail",rssObject.items[position].thumbnail)
                 selectedItemIntent.putExtra("content",noHtmlContent)
                 selectedItemIntent.putExtra("link",rssObject.items[position].link)
-                mContext.startActivity(selectedItemIntent)
+                view.context.startActivity(selectedItemIntent)
             }
         })
     }
