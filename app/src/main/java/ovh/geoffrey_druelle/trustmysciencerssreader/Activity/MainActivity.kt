@@ -16,6 +16,7 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import ovh.geoffrey_druelle.trustmysciencerssreader.Adapter.FeedAdapter
 import ovh.geoffrey_druelle.trustmysciencerssreader.Common.HTTPDataHandler
+import ovh.geoffrey_druelle.trustmysciencerssreader.Database.Database
 import ovh.geoffrey_druelle.trustmysciencerssreader.Model.RSSObject
 import ovh.geoffrey_druelle.trustmysciencerssreader.R
 
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
 
         loadRSS()
+
 
         // Using DB or savedInstanceState for an Offline mode
 //        if(isNetworkAvailable()){
@@ -85,6 +87,9 @@ class MainActivity : AppCompatActivity() {
         val url_get_data = StringBuilder(RSS_to_JSON_API)
         url_get_data.append(RSS_link)
         loadRSSAsync.execute(url_get_data.toString())
+
+        val db = Database(this)
+        saveArticle
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
